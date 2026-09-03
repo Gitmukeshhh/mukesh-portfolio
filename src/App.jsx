@@ -8,7 +8,10 @@ import {
   LinkedInIcon,
   GitHubIcon,
   ArrowIcon,
+  DownloadIcon,
 } from "./icons.jsx";
+
+const RESUME_URL = `${import.meta.env.BASE_URL}resume/Mukesh_Dhale_Resume.pdf`;
 
 const NAV = [
   { id: "about", label: "About" },
@@ -61,6 +64,9 @@ function Hero() {
     <section id="top" className="hero">
       <div className="hero-glow" />
       <div className="hero-inner">
+        <span className="status-pill reveal">
+          <span className="status-dot" /> Open to Work
+        </span>
         <p className="eyebrow reveal">Hi, I&apos;m</p>
         <h1 className="reveal">
           {profile.name}
@@ -69,8 +75,11 @@ function Hero() {
         <p className="hero-title reveal">{profile.title}</p>
         <p className="hero-tagline reveal">{profile.tagline}</p>
         <div className="hero-cta reveal">
-          <a className="btn-primary" href="#contact">
-            Get in touch <ArrowIcon />
+          <a className="btn-primary" href={RESUME_URL} download>
+            Download Resume <DownloadIcon />
+          </a>
+          <a className="btn-ghost" href="#contact">
+            Get in touch
           </a>
           <a className="btn-ghost" href="#experience">
             View experience
@@ -219,6 +228,9 @@ export default function App() {
           <div className="contact-actions">
             <a className="btn-primary" href={`mailto:${profile.email}`}>
               Email Me <ArrowIcon />
+            </a>
+            <a className="btn-ghost" href={RESUME_URL} download>
+              Download Resume <DownloadIcon />
             </a>
             <CopyEmailButton />
           </div>
