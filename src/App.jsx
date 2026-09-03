@@ -1,5 +1,14 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import profile from "./profile.js";
+import useReveal from "./useReveal.js";
+import {
+  MailIcon,
+  PhoneIcon,
+  PinIcon,
+  LinkedInIcon,
+  GitHubIcon,
+  ArrowIcon,
+} from "./icons.jsx";
 
 const NAV = [
   { id: "about", label: "About" },
@@ -9,53 +18,76 @@ const NAV = [
   { id: "contact", label: "Contact" },
 ];
 
-function Sidebar() {
+function Navbar() {
+  const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 12);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <aside className="sidebar">
-      <div className="avatar">{profile.initials}</div>
-      <h1>{profile.name}</h1>
-      <p className="role">{profile.title}</p>
-      <p className="tagline">{profile.tagline}</p>
+    <header className={`navbar ${scrolled ? "scrolled" : ""}`}>
+      <div className="navbar-inner">
+        <a href="#top" className="brand">
+          MD<span className="dot">.</span>
+        </a>
+        <nav className={`nav-links ${open ? "open" : ""}`}>
+          {NAV.map((item) => (
+            <a key={item.id} href={`#${item.id}`} onClick={() => setOpen(false)}>
+              {item.label}
+            </a>
+          ))}
+        </nav>
+        <button
+          className="burger"
+          aria-label="Toggle menu"
+          onClick={() => setOpen((v) => !v)}
+        >
+          <span />
+          <span />
+          <span />
+        </button>
+      </div>
+    </header>
+  );
+}
 
-      <div className="side-divider" />
-
-      <ul className="contact-list">
-        <li>
-          <span className="icon">✉</span>
-          <a href={`mailto:${profile.email}`}>{profile.email}</a>
-        </li>
-        <li>
-          <span className="icon">☎</span>
-          <span>{profile.phone}</span>
-        </li>
-        <li>
-          <span className="icon">📍</span>
-          <span>{profile.location}</span>
-        </li>
-        <li>
-          <span className="icon">in</span>
-          <a href={profile.linkedin} target="_blank" rel="noreferrer">
-            linkedin.com/in/mukesh-dhale
+function Hero() {
+  return (
+    <section id="top" className="hero">
+      <div className="hero-glow" />
+      <div className="hero-inner">
+        <p className="eyebrow reveal">Hi, I&apos;m</p>
+        <h1 className="reveal">
+          {profile.name}
+          <span className="cursor">|</span>
+        </h1>
+        <p className="hero-title reveal">{profile.title}</p>
+        <p className="hero-tagline reveal">{profile.tagline}</p>
+        <div className="hero-cta reveal">
+          <a className="btn-primary" href="#contact">
+            Get in touch <ArrowIcon />
           </a>
-        </li>
-        <li>
-          <span className="icon">⌥</span>
-          <a href={profile.github} target="_blank" rel="noreferrer">
-            github.com/Gitmukeshhh
+          <a className="btn-ghost" href="#experience">
+            View experience
           </a>
-        </li>
-      </ul>
-
-      <div className="side-divider" />
-
-      <nav className="side-nav">
-        {NAV.map((item) => (
-          <a key={item.id} href={`#${item.id}`}>
-            {item.label}
-          </a>
-        ))}
-      </nav>
-    </aside>
+        </div>
+        <div className="hero-meta reveal">
+          <span>
+            <PinIcon /> {profile.location}
+          </span>
+          <span>
+            <MailIcon /> {profile.email}
+          </span>
+        </div>
+      </div>
+      <a className="scroll-cue" href="#about" aria-label="Scroll down">
+        <span />
+      </a>
+    </section>
   );
 }
 
@@ -73,46 +105,55 @@ function CopyEmailButton() {
   };
 
   return (
-    <button className="copy-btn" onClick={handleCopy} type="button">
-      {copied ? "Copied!" : "Copy email address"}
+    <button className="btn-ghost" onClick={handleCopy} type="button">
+      {copied ? "Copied!" : "Copy email"}
     </button>
   );
 }
 
 export default function App() {
+  useReveal();
+
   return (
-    <div className="page">
-      <Sidebar />
+    <>
+      <Navbar />
+      <Hero />
 
       <main className="content">
-        <section id="about" className="block">
+        <section id="about" className="block reveal">
+          <p className="eyebrow">01 · About</p>
           <h2>About Me</h2>
           <p className="summary">{profile.summary}</p>
         </section>
 
-        <section id="experience" className="block">
+        <section id="experience" className="block reveal">
+          <p className="eyebrow">02 · Career</p>
           <h2>Work Experience</h2>
           <div className="timeline">
             {profile.experience.map((job) => (
-              <div className="timeline-item" key={job.company}>
-                <div className="timeline-header">
-                  <h3>{job.role}</h3>
-                  <span className="duration">{job.duration}</span>
+              <div className="timeline-item reveal" key={job.company}>
+                <span className="timeline-dot" />
+                <div className="timeline-card">
+                  <div className="timeline-header">
+                    <h3>{job.role}</h3>
+                    <span className="duration">{job.duration}</span>
+                  </div>
+                  <p className="company">
+                    {job.company} · {job.location}
+                  </p>
+                  <ul>
+                    {job.points.map((point, i) => (
+                      <li key={i}>{point}</li>
+                    ))}
+                  </ul>
                 </div>
-                <p className="company">
-                  {job.company} · {job.location}
-                </p>
-                <ul>
-                  {job.points.map((point, i) => (
-                    <li key={i}>{point}</li>
-                  ))}
-                </ul>
               </div>
             ))}
           </div>
         </section>
 
-        <section id="skills" className="block">
+        <section id="skills" className="block reveal">
+          <p className="eyebrow">03 · Toolbox</p>
           <h2>Skills</h2>
           <div className="skills-grid">
             {profile.skills.map((group) => (
@@ -130,7 +171,8 @@ export default function App() {
           </div>
         </section>
 
-        <section id="education" className="block">
+        <section id="education" className="block reveal">
+          <p className="eyebrow">04 · Education</p>
           <h2>Education</h2>
           {profile.education.map((edu) => (
             <div className="edu-item" key={edu.degree}>
@@ -140,24 +182,36 @@ export default function App() {
           ))}
         </section>
 
-        <section id="contact" className="block">
-          <h2>Get In Touch</h2>
+        <section id="contact" className="block reveal contact-block">
+          <p className="eyebrow">05 · Contact</p>
+          <h2>Let&apos;s Build Something</h2>
           <p className="summary">
             Open to new opportunities — feel free to reach out over email or connect on
             LinkedIn.
           </p>
           <div className="contact-actions">
             <a className="btn-primary" href={`mailto:${profile.email}`}>
-              Email Me
+              Email Me <ArrowIcon />
             </a>
             <CopyEmailButton />
+          </div>
+          <div className="social-row">
+            <a href={profile.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn">
+              <LinkedInIcon />
+            </a>
+            <a href={profile.github} target="_blank" rel="noreferrer" aria-label="GitHub">
+              <GitHubIcon />
+            </a>
+            <a href={`tel:${profile.phone}`} aria-label="Phone">
+              <PhoneIcon />
+            </a>
           </div>
         </section>
 
         <footer>
-          © {new Date().getFullYear()} {profile.name}
+          © {new Date().getFullYear()} {profile.name}. Built with React.
         </footer>
       </main>
-    </div>
+    </>
   );
 }
