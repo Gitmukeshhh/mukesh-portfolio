@@ -15,6 +15,7 @@ const NAV = [
   { id: "experience", label: "Experience" },
   { id: "skills", label: "Skills" },
   { id: "education", label: "Education" },
+  { id: "certifications", label: "Certifications" },
   { id: "contact", label: "Contact" },
 ];
 
@@ -182,8 +183,34 @@ export default function App() {
           ))}
         </section>
 
+        <section id="certifications" className="block reveal">
+          <p className="eyebrow">05 · Certifications</p>
+          <h2>Certifications</h2>
+          <div className="cert-grid">
+            {profile.certifications.map((cert) => (
+              <a
+                className="cert-card"
+                key={cert.name}
+                href={`${import.meta.env.BASE_URL}${cert.image}`}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img
+                  src={`${import.meta.env.BASE_URL}${cert.image}`}
+                  alt={cert.name}
+                  loading="lazy"
+                />
+                <div className="cert-info">
+                  <h3>{cert.name}</h3>
+                  <span className="duration">{cert.date}</span>
+                </div>
+              </a>
+            ))}
+          </div>
+        </section>
+
         <section id="contact" className="block reveal contact-block">
-          <p className="eyebrow">05 · Contact</p>
+          <p className="eyebrow">06 · Contact</p>
           <h2>Let&apos;s Build Something</h2>
           <p className="summary">
             Open to new opportunities — feel free to reach out over email or connect on

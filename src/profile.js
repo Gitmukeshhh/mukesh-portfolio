@@ -56,6 +56,14 @@ const profile = {
     },
   ],
   education: [{ degree: "Bachelor of Engineering (B.E.)", duration: "2018 – 2022" }],
+  certifications: [
+    {
+      name: "Certified by micro1 — AI Interview",
+      issuer: "micro1",
+      date: "August 22, 2026",
+      image: "certificates/micro1-ai-interview.jpeg",
+    },
+  ],
 };
 
 export default profile;
