@@ -1,0 +1,61 @@
+const profile = {
+  name: "Mukesh Dhale",
+  initials: "MD",
+  title: "Java Backend Developer",
+  tagline: "Spring Boot · Microservices · REST APIs · AWS",
+  location: "India",
+  phone: "+91-9307014584",
+  email: "mukeshdhale27@gmail.com",
+  linkedin: "https://linkedin.com/in/mukesh-dhale",
+  github: "https://github.com/Gitmukeshhh",
+  summary:
+    "Java Backend Developer with 3+ years of professional experience in designing, developing, and maintaining scalable backend applications and microservices. Strong expertise in Java, Spring Boot, Spring Cloud, Spring Security, REST APIs, Hibernate, JPA, Kafka, RabbitMQ, Redis, MySQL, PostgreSQL, and AWS. Experienced in microservices architecture, API development, database optimization, authentication and authorization, caching, asynchronous processing, cloud deployment, production support, and troubleshooting of enterprise applications. Strong understanding of OOP, SOLID principles, LLD, and Design Patterns, with knowledge of Large Language Models (LLMs) and Spring AI.",
+  skills: [
+    { category: "Programming", items: ["Java 8/11/17", "Groovy", "Python", "SQL"] },
+    { category: "Frameworks", items: ["Spring Boot", "Spring MVC", "Spring Security", "Spring Data JPA", "Hibernate", "Spring Batch", "Spring Cloud", "Spring AOP"] },
+    { category: "Architecture", items: ["Microservices", "REST APIs", "SOAP", "API Gateway", "Feign Client", "Event-Driven Arch."] },
+    { category: "LLD & Design", items: ["OOD", "SOLID Principles", "LLD", "Design Patterns", "Factory", "Strategy", "Builder", "Singleton", "Observer"] },
+    { category: "Messaging", items: ["Apache Kafka", "RabbitMQ", "Async Messaging"] },
+    { category: "Databases", items: ["MySQL", "PostgreSQL", "Oracle", "MongoDB", "Redis", "OpenSearch", "Elasticsearch"] },
+    { category: "Cloud & DevOps", items: ["AWS EC2", "ECS", "S3", "RDS", "Lambda", "WAF", "CloudWatch", "IAM", "Docker", "Git", "GitHub Actions", "Maven", "Gradle"] },
+    { category: "Security", items: ["OAuth2", "JWT", "RBAC", "SSL/TLS", "Spring Security", "AWS WAF"] },
+    { category: "AI / LLM", items: ["LLMs", "Spring AI"] },
+    { category: "Tools", items: ["Swagger/OpenAPI", "Postman", "IntelliJ IDEA", "Eclipse", "JSON", "XML", "SFTP"] },
+  ],
+  experience: [
+    {
+      company: "JusTransform",
+      role: "Software Engineer – Java Backend Developer",
+      location: "Remote, India",
+      duration: "Feb 2024 – Present",
+      points: [
+        "Designed and developed scalable Java microservices using Spring Boot, Spring Cloud, and REST APIs for an enterprise B2B SaaS integration platform.",
+        "Applied LLD, SOLID principles, and Design Patterns to design maintainable, modular, and scalable backend components.",
+        "Implemented secure authentication and authorization using Spring Security, OAuth2, JWT, and RBAC across backend services.",
+        "Developed an OpenSearch-based search module for Business IDs, improving search accuracy and reducing API response latency.",
+        "Implemented Redis caching with TTL-based eviction, reducing database load and improving response time for frequently accessed APIs.",
+        "Worked on LookupV3 migration from MongoDB to MySQL, including data access changes, query optimization, and backend service modifications.",
+        "Configured and managed AWS WAF and IAM policies to improve application security and control unauthorized traffic.",
+        "Handled production issues through debugging, log analysis, root-cause analysis, and timely resolution of critical backend incidents.",
+        "Participated in Java application modernization and version migration while maintaining application stability and backward compatibility.",
+      ],
+    },
+    {
+      company: "Alignbits LLC",
+      role: "Software Engineer – Java Developer",
+      location: "Remote, India",
+      duration: "May 2023 – Jan 2024",
+      points: [
+        "Developed and maintained RESTful APIs and microservices using Java, Spring Boot, and Spring MVC for multiple client integrations.",
+        "Built Groovy-based integration services and ETL pipelines for data transformation, processing, and system-to-system integration.",
+        "Implemented Spring Batch jobs for large-scale data processing and automated backend workflows.",
+        "Investigated and resolved production issues using debugging, log analysis, root-cause analysis, and performance troubleshooting.",
+        "Developed unit and integration tests using JUnit 5 and Mockito to improve backend reliability and maintainability.",
+        "Optimized MySQL and PostgreSQL queries using indexing, query analysis, and database performance tuning.",
+      ],
+    },
+  ],
+  education: [{ degree: "Bachelor of Engineering (B.E.)", duration: "2018 – 2022" }],
+};
+
+export default profile;
