@@ -554,6 +554,61 @@ a {
   color: var(--text-muted);
 }
 
+/* ---------- Resume ---------- */
+
+.resume-card {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.75rem;
+}
+
+.resume-card-icon {
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: rgba(110, 231, 212, 0.1);
+  border: 1px solid rgba(110, 231, 212, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+}
+.resume-card-icon svg {
+  width: 26px;
+  height: 26px;
+}
+
+.resume-card-info {
+  flex: 1;
+  min-width: 220px;
+}
+.resume-card-info h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1.02rem;
+  color: var(--text);
+}
+.resume-card-info .summary {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.resume-card-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+.resume-card-actions .btn-primary,
+.resume-card-actions .btn-ghost {
+  padding: 0.65rem 1.3rem;
+  font-size: 0.9rem;
+}
+
 /* ---------- Contact ---------- */
 
 .contact-actions {

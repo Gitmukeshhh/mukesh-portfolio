@@ -9,6 +9,7 @@ import {
   GitHubIcon,
   ArrowIcon,
   DownloadIcon,
+  DocumentIcon,
 } from "./icons.jsx";
 
 const RESUME_URL = `${import.meta.env.BASE_URL}resume/Mukesh_Dhale_Resume.pdf`;
@@ -19,6 +20,7 @@ const NAV = [
   { id: "skills", label: "Skills" },
   { id: "education", label: "Education" },
   { id: "certifications", label: "Certifications" },
+  { id: "resume", label: "Resume" },
   { id: "contact", label: "Contact" },
 ];
 
@@ -218,8 +220,32 @@ export default function App() {
           </div>
         </section>
 
+        <section id="resume" className="block reveal">
+          <p className="eyebrow">06 · Resume</p>
+          <h2>Resume</h2>
+          <div className="resume-card">
+            <div className="resume-card-icon">
+              <DocumentIcon />
+            </div>
+            <div className="resume-card-info">
+              <h3>Mukesh_Dhale_Resume.pdf</h3>
+              <p className="summary">
+                Full resume with detailed work experience, skills, and education.
+              </p>
+            </div>
+            <div className="resume-card-actions">
+              <a className="btn-primary" href={RESUME_URL} download>
+                Download <DownloadIcon />
+              </a>
+              <a className="btn-ghost" href={RESUME_URL} target="_blank" rel="noreferrer">
+                View
+              </a>
+            </div>
+          </div>
+        </section>
+
         <section id="contact" className="block reveal contact-block">
-          <p className="eyebrow">06 · Contact</p>
+          <p className="eyebrow">07 · Contact</p>
           <h2>Let&apos;s Build Something</h2>
           <p className="summary">
             Open to new opportunities — feel free to reach out over email or connect on
