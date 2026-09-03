@@ -55,6 +55,66 @@ const profile = {
       ],
     },
   ],
+  projects: [
+    {
+      name: "BookMyShow",
+      subtitle: "Scalable Microservices Ticket Booking System · Personal Project",
+      tech: [
+        "Java",
+        "Spring Boot",
+        "Spring Cloud (Eureka)",
+        "API Gateway",
+        "Spring Security",
+        "JWT",
+        "MySQL",
+        "JPA/Hibernate",
+        "RabbitMQ",
+        "Docker",
+      ],
+      points: [
+        "Developed a production-grade movie ticket booking platform using Java and Spring Boot microservices, enabling users to browse movies, select shows, and book tickets.",
+        "Architected the system into independently deployable services — User, Movie, Booking, Payment, Notification, and Review — improving scalability, modularity, and maintainability.",
+        "Implemented Spring Cloud Eureka for service discovery and an API Gateway for centralized request routing, load balancing, and traffic management.",
+        "Secured APIs using Spring Security with JWT-based authentication, enabling role-based access control across services.",
+        "Designed and optimized a normalized MySQL schema using JPA/Hibernate for users, shows, seats, and bookings.",
+        "Integrated RabbitMQ for asynchronous, event-driven workflows such as booking confirmation notifications.",
+        "Handled high-concurrency scenarios with seat locking and transaction management to prevent double booking during peak traffic.",
+        "Containerized all services using Docker for consistent deployment and environment portability.",
+      ],
+    },
+    {
+      name: "JT Lookup Service v3",
+      subtitle: "JusTransform",
+      tech: ["Java", "Spring Boot", "Redis", "RabbitMQ", "REST API"],
+      points: [
+        "Designed and developed REST APIs with support for versioning, tenant isolation, and bulk data operations for a high-performance reference data microservice used across EDI transformations and mappers.",
+        "Implemented Redis caching with TTL-based eviction, reducing database load and bringing response times under 20ms.",
+        "Integrated RabbitMQ for event-driven cache invalidation to maintain data consistency across distributed systems.",
+        "Resolved critical production issues related to stale data handling.",
+      ],
+    },
+    {
+      name: "JT-Search",
+      subtitle: "Transaction Search Service · JusTransform",
+      tech: ["Java 17", "Spring Boot 3", "MySQL", "JPA/Hibernate", "Native SQL", "JPA Specifications", "REST API", "AWS"],
+      points: [
+        "Developed advanced search APIs powering transaction search for enterprise users, with filtering by date range, transaction status, and connection details.",
+        "Implemented permission-aware query logic using JPA Specifications and native SQL to ensure secure multi-tenant access.",
+        "Optimized queries for large datasets to achieve sub-second response times.",
+        "Handled complex access control scenarios while debugging and resolving production issues.",
+      ],
+    },
+    {
+      name: "OpenSearch Transaction Service",
+      subtitle: "JusTransform",
+      tech: ["Java 17", "Spring Boot", "AWS OpenSearch", "Java OpenSearch Client", "MySQL", "REST API"],
+      points: [
+        "Enabled real-time full-text search across transaction data by designing a scheduled batch indexing process to sync data from MySQL into AWS OpenSearch.",
+        "Developed dynamic query builders using OpenSearch DSL to support flexible, accurate multi-filter search.",
+        "Improved search accuracy by refining query logic and resolved data inconsistencies for reliable, high-performance search.",
+      ],
+    },
+  ],
   education: [{ degree: "Bachelor of Engineering (B.E.)", duration: "2018 – 2022" }],
   certifications: [
     {
